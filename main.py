@@ -26,4 +26,20 @@ class Drone:
       self.y = self.y_dest
       print("Drone achieved the aim!")
 
+class Simulation:
+  def __init__(self):
+    self.drone = Drone()
 
+    self.x_history = []
+    self.y_history = []
+    self.battery_history = []
+  
+  def run(self):
+    while(self.drone.x != self.drone.x_dest | self.drone.y != self.drone.y_dest):
+      self.x_history.append(self.drone.x)
+      self.y_history.append(self.drone.y)
+      self.battery_history.append(self.drone.full_battery)
+
+      self.drone.move()
+
+   
